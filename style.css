@@ -87,7 +87,7 @@ input:focus{
 }
 
 .entered-todo{
-    margin-left: 12px;  
+    margin: auto 0 auto 12px;  
     font-family: 'Poppins', sans-serif;
     font-size:  1.1em;
 }
