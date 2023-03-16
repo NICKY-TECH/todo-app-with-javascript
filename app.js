@@ -86,14 +86,14 @@ await checkText();
      if(event.target.classList.contains('fa-trash-can')){
      let indexValue=event.target.parentElement.parentElement.parentElement.children[0].id;
      localStorage.removeItem(indexValue);
-     itemToBeRemoved=event.target.parentElement.parentElement.parentElement.remove();
+     event.target.parentElement.parentElement.parentElement.remove();
    
 
    
      
      }else if(event.target.classList.contains('two')){
         let indexValue=event.target.parentElement.parentElement.children[0].id;
-        itemToBeRemoved=event.target.parentElement.parentElement.parentElement.remove();
+        event.target.parentElement.parentElement.parentElement.remove();
        localStorage.removeItem(indexValue);
       
 
