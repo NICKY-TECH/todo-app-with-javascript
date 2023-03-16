@@ -62,8 +62,6 @@ async function makeAnEdit(){
      let indexValue=event.target.parentElement.parentElement.parentElement.children[0].id;
    let value=localStorage.getItem(`${indexValue}`);
    value.item=newValue;
-   console.log(value);
-   console.log(newValue)
    localStorage.setItem(`${indexValue}`,JSON.stringify({
     item:newValue,
     position:indexValue
