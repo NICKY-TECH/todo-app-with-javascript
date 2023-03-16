@@ -4,7 +4,6 @@ let button=document.querySelector('button');
 
 let container=document.querySelector('.todo-container');
 
-localStorage.clear();
 
 button.addEventListener('click',async(event)=>{
 event.preventDefault();
