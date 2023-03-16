@@ -29,7 +29,7 @@ header{
 background-color: #ffffff;
 margin: auto;
 height: 400px;
-width: 90%;
+width: 60%;
 text-align: center;
 border-top-right-radius: 3px;
 border-bottom-right-radius: 3px;
@@ -41,6 +41,7 @@ input{
   margin: 20px 0;
   width: 70%;
   padding: 15px 3px;
+  border: solid 2px black;
   font-size: 1.2em;
 }
 
@@ -102,5 +103,6 @@ border-bottom-right-radius: 3px;
 border-bottom-left-radius: 3px;
 border-top-left-radius: 3px;
 }
+
 
 
