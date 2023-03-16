@@ -104,5 +104,19 @@ border-bottom-left-radius: 3px;
 border-top-left-radius: 3px;
 }
 
+@media screen and (max-width:650px){
+    .todo-area{
+        width: 90%
+    }
+
+    input{
+        width: 60%;
+    }
+    
+    .todo{
+        width: 78%;
+    }
+}
+
 
 

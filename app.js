@@ -49,24 +49,20 @@ async function checkText(){
 }
 }
 await checkText();
-makeAnEdit();
-deleteAnItem();
 
 });
 
-async function makeAnEdit(){
+
     let todoClick=document.querySelector('.todo-container');
     todoClick.addEventListener('click',(event)=>{
      if(event.target.classList.contains('fa-pen-to-square')){
      let newValue=event.target.parentElement.parentElement.parentElement.children[0].innerText;
      let indexValue=event.target.parentElement.parentElement.parentElement.children[0].id;
-   let value=localStorage.getItem(`${indexValue}`);
-   value.item=newValue;
    localStorage.setItem(`${indexValue}`,JSON.stringify({
     item:newValue,
     position:indexValue
    }))
-   console.log(value);
+   console.log(newValue);
      
      }else if(event.target.classList.contains('one')){
         let newValue=event.target.parentElement.parentElement.children[0].innerText;
@@ -74,7 +70,6 @@ async function makeAnEdit(){
       let value=localStorage.getItem(`${indexValue}`);
       console.log(value);
       console.log(newValue);
-      value.item=newValue;
       localStorage.setItem(`${indexValue}`,JSON.stringify({
         item:newValue,
         position:indexValue
@@ -85,10 +80,7 @@ async function makeAnEdit(){
 
 
 })
-}
 
-async function deleteAnItem(){
-    let todoClick=document.querySelector('.todo-container');
     todoClick.addEventListener('click',(event)=>{
      if(event.target.classList.contains('fa-trash-can')){
      let indexValue=event.target.parentElement.parentElement.parentElement.children[0].id;
@@ -99,7 +91,7 @@ async function deleteAnItem(){
      }else if(event.target.classList.contains('two')){
         let indexValue=event.target.parentElement.parentElement.children[0].id;
         itemToBeRemoved=event.target.parentElement.parentElement.parentElement.remove();
-      localStorage.removeItem(`${indexValue}`);
+       localStorage.removeItem(`${indexValue}`);
       
 
      }
@@ -108,12 +100,13 @@ async function deleteAnItem(){
 
 })
 
-}
+
 
 window.addEventListener('load',async()=>{
   async function onLoad(){
     let fragment=new DocumentFragment();
-    for(let i=0;i<localStorage.length;i++){
+    console.log(localStorage.length)
+    for(let i=localStorage.length-1;i>=0;i--){
     
     let todoPack=document.createElement('div');
     todoPack.classList.add('todo');
@@ -138,7 +131,7 @@ window.addEventListener('load',async()=>{
     iconsContainer.prepend(buttonOne);
     iconsContainer.append(buttonTwo);
     todoPack.append(iconsContainer);
-    fragment.prepend(todoPack);
+    fragment.append(todoPack);
     
     
 
@@ -147,8 +140,6 @@ window.addEventListener('load',async()=>{
     container.prepend(fragment);
   }
   await onLoad();
-  makeAnEdit();
-  deleteAnItem();
 })
 
 
