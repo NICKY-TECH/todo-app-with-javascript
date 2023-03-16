@@ -11,7 +11,7 @@ async function checkText(){
     if(input.value.length>0){
         let inputValue=input.value;
         input.value='';
-    let todoLength=localStorage.length+1;
+    let todoLength=localStorage.length;
     let todo={
         item:inputValue,
         position:todoLength
@@ -84,14 +84,16 @@ await checkText();
     todoClick.addEventListener('click',(event)=>{
      if(event.target.classList.contains('fa-trash-can')){
      let indexValue=event.target.parentElement.parentElement.parentElement.children[0].id;
+     localStorage.removeItem(indexValue);
      itemToBeRemoved=event.target.parentElement.parentElement.parentElement.remove();
+   
 
-   localStorage.removeItem(`${indexValue}`);
+   
      
      }else if(event.target.classList.contains('two')){
         let indexValue=event.target.parentElement.parentElement.children[0].id;
         itemToBeRemoved=event.target.parentElement.parentElement.parentElement.remove();
-       localStorage.removeItem(`${indexValue}`);
+       localStorage.removeItem(indexValue);
       
 
      }
@@ -113,7 +115,9 @@ window.addEventListener('load',async()=>{
     const todoText=document.createElement('p');
     todoText.classList.add('entered-todo');
     let indexNeeded=localStorage.key(i);
-    todoText.innerText=JSON.parse(localStorage.getItem(indexNeeded)).item;
+    let valueStored=JSON.parse(localStorage.getItem(indexNeeded));
+    todoText.innerText=valueStored.item;
+    todoText.setAttribute('id',`${valueStored.position}`);
     todoText.contentEditable='true';
     let buttonOne=document.createElement('button');
     let buttonTwo=document.createElement('button');
