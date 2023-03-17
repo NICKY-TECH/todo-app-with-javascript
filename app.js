@@ -95,8 +95,6 @@ await checkText();
         let indexValue=event.target.parentElement.parentElement.children[0].id;
         event.target.parentElement.parentElement.parentElement.remove();
        localStorage.removeItem(indexValue);
-      
-
      }
  
 
